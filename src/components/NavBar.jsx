@@ -1,4 +1,12 @@
 export const NavBar = ({setCategory}) => {
+
+  const categories = ["general", "sports", "technology", "business", "health", "science", "entertainment"];
+
+  function returnRandomCategory(){
+    const randomIndex = Math.floor(Math.random() * (6 - 0));
+    return categories[randomIndex];
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -25,7 +33,7 @@ export const NavBar = ({setCategory}) => {
                   <li><div className="dropdown-item" onClick={() => setCategory("science")}>Science</div></li>
                   <li><div className="dropdown-item" onClick={() => setCategory("entertainment")}>Entertainment</div></li>
                   <li><hr className="dropdown-divider"></hr></li>
-                  <li><div className="dropdown-item">Random</div></li>
+                  <li><div className="dropdown-item" onClick={() => setCategory(returnRandomCategory())}>Random</div></li>
                 </ul>
               </li>
             </ul>
